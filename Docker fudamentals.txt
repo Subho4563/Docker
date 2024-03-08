@@ -1,0 +1,93 @@
+1. What is Docker?
+Docker is an open-source centralized platform designed to create, deploy and run applications.
+Docker uses a container on the host O.S to run apps. It allows apps to use the same Linux kernel as a system on the host computer, rather than creating a whole virtual O.S.
+
+2. Advantages of Docker?
+No pre-allocation of RAM.
+light in weight and less cost.
+It can run on physical hardware, virtual hardware and on the cloud.
+You can reuse the image.
+
+3. Docker Ecosystem:
+
+Docker Daemon/Engine
+Docker Daemon runs on the host O.S. It is responsible for running containers to manage docker services.
+Docker Daemon can communicate with other Daemons. It is a Background process.
+
+Docker Client:
+Docker users can interact with the docker daemon through a client. [CLI]
+Docker Client uses commands and rest API to communicate with Docker Daemon.
+
+Docker Host:
+It is used to provide an environment to execute and run applications. It contains the docker daemon, images, containers, networks and storage.
+
+Docker Hub/Registry:
+Docker Hub manages and stores the docker images.
+There are two types of registries in the docker.
+Public - called Docker Hub
+Private - use to share images within the enterprise.
+
+Docker Images:
+Docker Images are the read-only binary templates used to create docker containers.
+
+Ways to create :
+
+Take image from Docker Hub
+Create an image from the Docker file
+Create Images from existing Docker Containers.
+
+Docker Container:
+
+A container holds the entire package that is needed to run the application.
+The container is like a Virtual Machine, Images become containers when they run on the docker engine.
+
+5. Docker Commands:
+First update system:
+sudo apt-get update
+
+Install Docker:
+sudo apt-get install docker.io
+
+To check Docker status:
+systemctl status docker
+
+Add Docker to the group to use it:
+sudo usermod -a -G docker $USER
+
+To see the active container list:
+docker ps
+
+To see all containers list (not active as well):
+docker ps -a
+
+To run an image as a container:
+docker run -it --name<container name> <image name> /bin/bash
+
+To see all images in Docker:
+docker images
+
+To start/stop Container.
+docker start <container name>
+
+docker stop <container name>
+To go inside a container.
+
+docker attach <container name>
+To check service started or not.
+
+service docker status
+To delete containers.
+
+docker rm <container name>
+To check the stats of a container, the memory consumed
+
+docker stats
+
+
+To build MySQL image:
+docker pull mysql -----> it will pull image from docker-hub
+docker run -d -e MYSQL_ROOT_PASSWORD=test@123 mysql:latest----> to run the image as a container.
+docker ps -----> to see it in the container list
+docker exec -it <conatiner id> bash -----> to execute MySQL and use it
+mysql -u root -p -------> add password
+
